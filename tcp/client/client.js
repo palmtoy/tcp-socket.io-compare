@@ -4,6 +4,7 @@ var Package = protocol.Package;
 var Message = protocol.Message;
 var socket = null;
 
+
 var start = function(host, port) {
 	socket = net.connect({port: port, host: host}, function(err) {
 		if(err) {
@@ -12,17 +13,10 @@ var start = function(host, port) {
   });
 };
 
-
 var encode = function(reqId, route, msg) {
   var type = reqId ? Message.TYPE_REQUEST : Message.TYPE_NOTIFY;
   msg = protocol.strencode(JSON.stringify(msg));
   return Message.encode(reqId, type, 0, route, msg);
-};
-
-var sendMessage = function(reqId, route, msg) {
-  msg = encode(reqId, route, msg);
-  var packet = Package.encode(Package.TYPE_DATA, msg);
-  send(packet);
 };
 
 var send = function(packet){
@@ -33,6 +27,22 @@ var send = function(packet){
   });
 };
 
+var sendMessage = function(reqId, route, msg) {
+  msg = encode(reqId, route, msg);
+  var packet = Package.encode(Package.TYPE_DATA, msg);
+  send(packet);
+};
+
 start('127.0.0.1', 3005);
 
-sendMessage(1, 'onChat', '{key: 1, value:2}');
+var totalCnt = 20000
+  , cnt = 0
+  , intervalId = 0;
+
+intervalId = setInterval(function() {
+  sendMessage(1, 'onChat', '{key: 1, value: 2}');
+  if (++cnt >= totalCnt && intervalId) {
+    clearInterval(intervalId);
+  }
+}, 50);
+
