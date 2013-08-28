@@ -1,0 +1,10 @@
+{
+	"name": "pomelo-test",
+	"version": "0.2.0",
+	"dependencies": {
+		"socket.io": "0.9.16",
+		"socket.io-client": "0.9.16",
+		"pomelo-logger": "0.1.1",
+	 	"pomelo-protocol": "0.1.2"
+	}
+}
