@@ -35,14 +35,16 @@ var sendMessage = function(reqId, route, msg) {
 
 start('127.0.0.1', 3005);
 
-var totalCnt = 20000
+// var totalCnt = 20000
+var totalCnt = 3
   , cnt = 0
   , intervalId = 0;
 
 intervalId = setInterval(function() {
-  sendMessage(1, 'onChat', '{key: 1, value: 2}');
-  if (++cnt >= totalCnt && intervalId) {
+  sendMessage(++cnt, 'onChat', '{Hello world!}');
+  if (cnt >= totalCnt && intervalId) {
     clearInterval(intervalId);
+    process.exit();
   }
 }, 50);
 

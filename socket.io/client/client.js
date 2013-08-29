@@ -1,3 +1,4 @@
+var util = require('util');
 var sioClient = require('socket.io-client');
 var socket = null;
 
@@ -11,19 +12,23 @@ var start = function(host, port) {
 };
 
 var sendMessage = function(message) {
-  console.error('sendMessage');
+  console.error('sendMessage : %j', message);
   socket.emit('message', message);
 };
 
-var totalCnt = 20000
+// var totalCnt = 20000
+var totalCnt = 3
   , cnt = 0
   , intervalId = 0;
 
 var flush = function() {
   intervalId = setInterval(function() {
-    sendMessage('123');
-    if (++cnt >= totalCnt && intervalId) {
+    var msg = util.format(
+      "{ id: %d, type: 0, compressRoute: 0, route: 'onChat', body: '{Hello world!}' }", ++cnt);
+    sendMessage(msg);
+    if (cnt >= totalCnt && intervalId) {
       clearInterval(intervalId);
+      process.exit();
     }
   }, 50);
 };

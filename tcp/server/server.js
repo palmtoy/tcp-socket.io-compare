@@ -22,12 +22,14 @@ var start = function(host, port) {
     	}
   	});
 	});
+
+  console.log('TCP server is running ...');
 };
 
 var handle = function(msg) {
   msg = Message.decode(msg.body);
   msg.body = JSON.parse(msg.body.toString('utf8'));
-  console.error('msg: %j', msg);
+  console.error('msg: ', msg);
 };
 
 var headHandler = function(headBuffer) {
