@@ -20,7 +20,7 @@ var encode = function(reqId, route, msg) {
 };
 
 var send = function(packet){
-  socket.write(packet, {binary: true}, function(err) {
+  socket.write(packet, null, function(err) {
     if(err) {
       console.error('send binary data error.');
     }

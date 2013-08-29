@@ -6,6 +6,7 @@
 		"socket.io-client": "0.9.16",
 		"pomelo-logger": "0.1.1",
     "pomelo-protocol": "0.1.2",
-    "webkit-devtools-agent" : "0.1.2"
+    "webkit-devtools-agent" : "0.1.2",
+    "express": "2.5.2"
 	}
 }

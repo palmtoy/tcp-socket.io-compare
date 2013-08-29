@@ -1,11 +1,21 @@
 var io = require('socket.io').listen(3010);
+var path = require('path');
 
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
   socket.on('message', function (data) {
     console.log('msg: ', data);
   });
 });
 
-console.log('Socket.io server is running ...');
+/*
+ kill -SIGUSR2 <pid>
+ http://localhost:9998/inspector.html?host=localhost:9999&page=0
+*/
+require('webkit-devtools-agent');
+var express = require('express');
+var expressSvr = express.createServer();
+expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
+expressSvr.listen(9998);
+
+console.log('[pid = %d] ~ Socket.io server is running ...', process.pid);

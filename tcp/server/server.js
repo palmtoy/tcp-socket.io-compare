@@ -43,4 +43,15 @@ var headHandler = function(headBuffer) {
   return len;
 };
 
+
+/*
+ kill -SIGUSR2 <pid>
+ http://localhost:9998/inspector.html?host=localhost:9999&page=0
+*/
+require('webkit-devtools-agent');
+var express = require('express');
+var expressSvr = express.createServer();
+expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
+expressSvr.listen(9998);
+
 start('127.0.0.1', 3005);
