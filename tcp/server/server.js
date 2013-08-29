@@ -1,3 +1,4 @@
+var path = require('path');
 var net = require('net');
 var protocol = require('pomelo-protocol');
 var TcpSocket = require('./tcpsocket');
@@ -23,7 +24,7 @@ var start = function(host, port) {
   	});
 	});
 
-  console.log('TCP server is running ...');
+  console.log('[pid = %d] ~ TCP server is running ...', process.pid);
 };
 
 var handle = function(msg) {

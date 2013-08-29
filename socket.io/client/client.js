@@ -16,8 +16,7 @@ var sendMessage = function(message) {
   socket.emit('message', message);
 };
 
-// var totalCnt = 20000
-var totalCnt = 3
+var totalCnt = 10000
   , cnt = 0
   , intervalId = 0;
 
@@ -30,7 +29,7 @@ var flush = function() {
       clearInterval(intervalId);
       process.exit();
     }
-  }, 50);
+  }, 200);
 };
 
 

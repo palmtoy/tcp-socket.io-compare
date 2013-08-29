@@ -16,6 +16,6 @@ require('webkit-devtools-agent');
 var express = require('express');
 var expressSvr = express.createServer();
 expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
-expressSvr.listen(9998);
+expressSvr.listen(9997);
 
 console.log('[pid = %d] ~ Socket.io server is running ...', process.pid);

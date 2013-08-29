@@ -35,8 +35,7 @@ var sendMessage = function(reqId, route, msg) {
 
 start('127.0.0.1', 3005);
 
-// var totalCnt = 20000
-var totalCnt = 3
+var totalCnt = 10000
   , cnt = 0
   , intervalId = 0;
 
@@ -46,5 +45,5 @@ intervalId = setInterval(function() {
     clearInterval(intervalId);
     process.exit();
   }
-}, 50);
+}, 10);
 
