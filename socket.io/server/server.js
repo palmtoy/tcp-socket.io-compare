@@ -1,4 +1,4 @@
-var io = require('socket.io').listen(3010);
+var io = require('socket.io').listen(9995);
 var path = require('path');
 
 

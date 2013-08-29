@@ -45,4 +45,4 @@ intervalId = setInterval(function() {
   }
 }, 10);
 
-start('10.120.144.102', 3005);
+start('10.120.144.102', 9996);
