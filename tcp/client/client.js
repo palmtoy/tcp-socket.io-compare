@@ -43,6 +43,6 @@ intervalId = setInterval(function() {
     clearInterval(intervalId);
     process.exit();
   }
-}, 10);
+}, 50);
 
 start('10.120.144.102', 9996);
