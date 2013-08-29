@@ -12,7 +12,7 @@ var start = function(host, port) {
 };
 
 var sendMessage = function(message) {
-  console.error('sendMessage : %j', message);
+  console.log('%j : sendMessage : %j', (new Date()).toLocaleString(), message);
   socket.emit('message', message);
 };
 
