@@ -33,8 +33,6 @@ var sendMessage = function(reqId, route, msg) {
   send(packet);
 };
 
-start('127.0.0.1', 3005);
-
 var totalCnt = 10000
   , cnt = 0
   , intervalId = 0;
@@ -47,3 +45,4 @@ intervalId = setInterval(function() {
   }
 }, 10);
 
+start('10.120.144.102', 3005);
