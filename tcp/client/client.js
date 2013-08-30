@@ -27,15 +27,16 @@ var send = function(packet){
   });
 };
 
+var totalCnt = 10000
+  , cnt = 0
+  , intervalId = 0;
+
 var sendMessage = function(reqId, route, msg) {
+  console.log('%j : sendMessage : %j', (new Date()).toLocaleString(), cnt);
   msg = encode(reqId, route, msg);
   var packet = Package.encode(Package.TYPE_DATA, msg);
   send(packet);
 };
-
-var totalCnt = 10000
-  , cnt = 0
-  , intervalId = 0;
 
 intervalId = setInterval(function() {
   sendMessage(++cnt, 'onChat', '{Hello world!}');
