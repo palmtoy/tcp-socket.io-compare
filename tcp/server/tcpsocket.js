@@ -170,7 +170,7 @@ var readBody = function(socket, data, offset) {
   start4copy = new Date().getTime();
   data.copy(socket.packageBuffer, socket.packageOffset, offset, dend);
   end4copy = new Date().getTime();
-  console.log('\nData.copy costs ' + (end4copy - start4copy) / 1000 + " sec.\n");
+  console.log('\nData.copy costs ' + (end4copy - start4copy) + " millisec.\n");
 
   socket.packageOffset += len;
 
@@ -186,7 +186,7 @@ var readBody = function(socket, data, offset) {
   }
 
   end4readBody = new Date().getTime();
-  console.log('\nReadBody costs ' + (end4readBody - start4readBody) / 1000 + " sec.\n");
+  console.log('\nReadBody costs ' + (end4readBody - start4readBody) + " millisec.\n");
   console.log('%j : readBodyCnt = %d', (new Date()).toLocaleString(), ++readBodyCnt);
   return dend;
 };
