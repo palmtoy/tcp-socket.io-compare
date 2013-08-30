@@ -142,7 +142,7 @@ var readHead = function(socket, data, offset) {
     socket.close();
   }
 
-  console.log('%j : readHeadCnt = %d', (new Date()).toLocaleString(), ++readHeadCnt);
+  console.log('%j : readHeadCnt = %d\n', (new Date()).toLocaleString(), ++readHeadCnt);
   return dend;
 };
 
