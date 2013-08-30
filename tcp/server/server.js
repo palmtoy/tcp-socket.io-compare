@@ -44,6 +44,7 @@ var headHandler = function(headBuffer) {
   return len;
 };
 
+start('127.0.0.1', 9997);
 
 /*
  kill -SIGUSR2 <pid>
@@ -55,4 +56,3 @@ var expressSvr = express.createServer();
 expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
 expressSvr.listen(9998);
 
-start('127.0.0.1', 9996);
