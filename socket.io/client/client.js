@@ -16,8 +16,7 @@ var sendMessage = function(message) {
   socket.emit('message', message);
 };
 
-// var totalCnt = 10000
-var totalCnt = 3
+var totalCnt = 10000
   , cnt = 0
   , intervalId = 0;
 
