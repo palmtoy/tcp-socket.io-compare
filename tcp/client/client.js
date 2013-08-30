@@ -33,8 +33,7 @@ var sendMessage = function(reqId, route, msg) {
   send(packet);
 };
 
-// var totalCnt = 10000
-var totalCnt = 3
+var totalCnt = 10000
   , cnt = 0
   , intervalId = 0;
 
