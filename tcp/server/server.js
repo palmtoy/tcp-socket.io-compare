@@ -13,7 +13,7 @@ var start = function(host, port) {
 	this.server.listen(this.port);
 
 	this.server.on('connection', function(socket) {
-    console.log('on connection');
+    // console.log('on connection');
 		var tcpsocket = new TcpSocket(socket, {headSize: 4,
                                          headHandler: headHandler});
 		tcpsocket.on('message', function(msg) {
@@ -30,7 +30,7 @@ var start = function(host, port) {
 var handle = function(msg) {
   msg = Message.decode(msg.body);
   msg.body = JSON.parse(msg.body.toString('utf8'));
-  console.log('msg: ', msg);
+  // console.log('msg: ', msg);
 };
 
 var headHandler = function(headBuffer) {

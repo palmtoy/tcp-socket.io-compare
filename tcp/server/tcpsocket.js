@@ -142,7 +142,7 @@ var readHead = function(socket, data, offset) {
     socket.close();
   }
 
-  console.log('%j : readHeadCnt = %d\n', (new Date()).toLocaleString(), ++readHeadCnt);
+  // console.log('%j : readHeadCnt = %d\n', (new Date()).toLocaleString(), ++readHeadCnt);
   return dend;
 };
 
@@ -160,17 +160,17 @@ var readBody = function(socket, data, offset) {
     , end4readBody= 0
     , start4copy = 0
     , end4copy = 0;
-  start4readBody = new Date().getTime();
+  // start4readBody = new Date().getTime();
 
   var blen = socket.packageSize - socket.packageOffset;
   var dlen = data.length - offset;
   var len = Math.min(blen, dlen);
   var dend = offset + len;
 
-  start4copy = new Date().getTime();
+  // start4copy = new Date().getTime();
   data.copy(socket.packageBuffer, socket.packageOffset, offset, dend);
-  end4copy = new Date().getTime();
-  console.log('\nData.copy costs ' + (end4copy - start4copy) + " millisec.\n");
+  // end4copy = new Date().getTime();
+  // console.log('\nData.copy costs ' + (end4copy - start4copy) + " millisec.\n");
 
   socket.packageOffset += len;
 
@@ -185,9 +185,9 @@ var readBody = function(socket, data, offset) {
     socket.close();
   }
 
-  end4readBody = new Date().getTime();
-  console.log('\nReadBody costs ' + (end4readBody - start4readBody) + " millisec.\n");
-  console.log('%j : readBodyCnt = %d', (new Date()).toLocaleString(), ++readBodyCnt);
+  // end4readBody = new Date().getTime();
+  // console.log('\nReadBody costs ' + (end4readBody - start4readBody) + " millisec.\n");
+  // console.log('%j : readBodyCnt = %d', (new Date()).toLocaleString(), ++readBodyCnt);
   return dend;
 };
 
