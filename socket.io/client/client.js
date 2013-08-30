@@ -1,3 +1,4 @@
+var path = require('path');
 var util = require('util');
 var sioClient = require('socket.io-client');
 var socket = null;

@@ -56,7 +56,7 @@ start('10.120.144.102', 9997);
 var devtoolsAgent = require('webkit-devtools-agent');
 var express = require('express');
 var expressSvr = express.createServer();
-expressSvr.use(express.static(path.resolve(__dirname, './devtools_agent_page')));
+expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
 expressSvr.listen(9998);
 
 if (devtoolsAgent) {
