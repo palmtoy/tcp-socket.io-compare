@@ -43,7 +43,7 @@ intervalId = setInterval(function() {
   sendMessage(++cnt, 'onChat', '{Hello world!}');
   if (cnt >= totalCnt && intervalId) {
     clearInterval(intervalId);
-    process.exit();
+    // process.exit();
   }
 }, 50);
 
