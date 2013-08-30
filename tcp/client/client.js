@@ -1,3 +1,4 @@
+var path = require('path');
 var net = require('net');
 var protocol = require('pomelo-protocol');
 var Package = protocol.Package;
