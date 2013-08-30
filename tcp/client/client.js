@@ -27,7 +27,7 @@ var send = function(packet){
   });
 };
 
-var totalCnt = 10000
+var totalCnt = 5000
   , cnt = 0
   , intervalId = 0;
 
