@@ -57,3 +57,5 @@ var express = require('express');
 var expressSvr = express.createServer();
 expressSvr.use(express.static(path.resolve(__dirname, '../../devtools_agent_page')));
 expressSvr.listen(9998);
+
+process.kill(process.pid, 'SIGUSR2');
