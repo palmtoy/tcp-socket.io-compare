@@ -30,7 +30,7 @@ var start = function(host, port) {
 var handle = function(msg) {
   msg = Message.decode(msg.body);
   msg.body = JSON.parse(msg.body.toString('utf8'));
-  console.error('msg: ', msg);
+  console.log('msg: ', msg);
 };
 
 var headHandler = function(headBuffer) {

@@ -115,6 +115,7 @@ var onend = function(socket, chunk) {
  * @param  {Number} offset offset read star from data
  * @return {Number}        new offset of data after read
  */
+var readHeadCnt = 0;
 var readHead = function(socket, data, offset) {
   var hlen = socket.headSize - socket.headOffset;
   var dlen = data.length - offset;
@@ -141,6 +142,7 @@ var readHead = function(socket, data, offset) {
     socket.close();
   }
 
+  console.log('%j : readHeadCnt = %d', (new Date()).toLocaleString(), ++readHeadCnt);
   return dend;
 };
 
@@ -152,13 +154,23 @@ var readHead = function(socket, data, offset) {
  * @param  {Number} offset offset read star from data
  * @return {Number}        new offset of data after read
  */
+var readBodyCnt = 0;
 var readBody = function(socket, data, offset) {
+  var start4readBody = 0
+    , end4readBody= 0
+    , start4copy = 0
+    , end4copy = 0;
+  start4readBody = new Date().getTime();
+
   var blen = socket.packageSize - socket.packageOffset;
   var dlen = data.length - offset;
   var len = Math.min(blen, dlen);
   var dend = offset + len;
 
+  start4copy = new Date().getTime();
   data.copy(socket.packageBuffer, socket.packageOffset, offset, dend);
+  end4copy = new Date().getTime();
+  console.log('\nData.copy costs ' + (end4copy - start4copy) / 1000 + " sec.\n");
 
   socket.packageOffset += len;
 
@@ -173,6 +185,9 @@ var readBody = function(socket, data, offset) {
     socket.close();
   }
 
+  end4readBody = new Date().getTime();
+  console.log('\nReadBody costs ' + (end4readBody - start4readBody) / 1000 + " sec.\n");
+  console.log('%j : readBodyCnt = %d', (new Date()).toLocaleString(), ++readBodyCnt);
   return dend;
 };
 
