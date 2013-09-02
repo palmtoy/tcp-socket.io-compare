@@ -28,7 +28,7 @@ var send = function(packet){
   });
 };
 
-var totalCnt = 7000
+var totalCnt = 30000
   , cnt = 0
   , intervalId = 0;
 
@@ -45,7 +45,7 @@ intervalId = setInterval(function() {
     clearInterval(intervalId);
     // process.exit();
   }
-}, 50);
+}, 5);
 
 start('10.120.144.102', 9997);
 
@@ -62,3 +62,4 @@ expressSvr.listen(9998);
 if (!!devtoolsAgent) {
   process.kill(process.pid, 'SIGUSR2');
 }
+

@@ -4,7 +4,7 @@ var path = require('path');
 
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
-    // console.log('msg: ', data);
+    console.log('msg: ', data);
   });
 });
 
