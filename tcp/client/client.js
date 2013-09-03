@@ -53,7 +53,7 @@ start('10.120.144.102', 9997);
 /*
  kill -SIGUSR2 <pid>
  http://localhost:9998/inspector.html?host=localhost:9999&page=0
-*/
+
 var devtoolsAgent = require('webkit-devtools-agent');
 var express = require('express');
 var expressSvr = express.createServer();
@@ -63,4 +63,5 @@ expressSvr.listen(9998);
 if (!!devtoolsAgent) {
   process.kill(process.pid, 'SIGUSR2');
 }
+*/
 
