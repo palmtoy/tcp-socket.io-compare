@@ -8,13 +8,7 @@ var logFD = fs.openSync('./sioSvrLog.js', 'w');
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
     // console.log('msg: ', data);
-    fs.write(logFD, 'msg: ' + data, function (err) {
-      if (err) {
-        fs.close(logFD);
-        logFD = fs.openSync('./sioSvrLog.js', 'a');
-        throw err;
-      }
-    });
+    fs.write(logFD, 'msg: ' + data);
   });
 });
 
