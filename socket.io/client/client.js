@@ -28,7 +28,7 @@ var flush = function() {
     sendMessage(msg);
     if (cnt >= totalCnt && intervalId) {
       clearInterval(intervalId);
-      // process.exit();
+      process.exit();
     }
   }, 0);
 };
