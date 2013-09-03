@@ -18,7 +18,7 @@ console.log('[pid = %d] ~ Socket.io server is running ...', process.pid);
 /*
  kill -SIGUSR2 <pid>
  http://localhost:9998/inspector.html?host=localhost:9999&page=0
-*/
+
 var devtoolsAgent = require('webkit-devtools-agent');
 var express = require('express');
 var expressSvr = express.createServer();
@@ -29,3 +29,4 @@ if (!!devtoolsAgent) {
   process.kill(process.pid, 'SIGUSR2');
 }
 
+*/
