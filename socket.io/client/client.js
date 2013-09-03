@@ -5,7 +5,7 @@ var socket = null;
 var fs = require('fs');
 
 
-var logFD = fs.openSync('./sioClientLog.js', 'w');
+var logFD = fs.openSync('./msg.js', 'w');
 
 var start = function(host, port) {
   socket = sioClient.connect(host + ':' + port,
