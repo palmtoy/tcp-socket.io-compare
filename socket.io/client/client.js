@@ -35,7 +35,7 @@ var flush = function() {
       clearInterval(intervalId);
       process.exit();
     }
-  }, 0);
+  }, 100);
 };
 
 start('10.120.144.102', 9995);
