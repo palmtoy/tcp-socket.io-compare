@@ -5,7 +5,7 @@ var socket = null;
 var fs = require('fs');
 
 
-var logFD = fs.openSync('./msg.log', 'w');
+// var logFD = fs.openSync('./msg.log', 'w');
 
 var start = function(host, port) {
   socket = sioClient.connect(host + ':' + port,
@@ -19,7 +19,7 @@ var sendMessage = function(message) {
   socket.emit('message', message);
   var tmpStr = util.format('%j : sendMessage : %j\n', (new Date()).toLocaleString(), message);
   console.log(tmpStr);
-  fs.write(logFD, tmpStr);
+  // fs.write(logFD, tmpStr);
 };
 
 var totalCnt = 70000
