@@ -2,7 +2,10 @@ var path = require('path');
 var util = require('util');
 var sioClient = require('socket.io-client');
 var socket = null;
+var fs = require('fs');
 
+
+var logFD = fs.openSync('./sioClientLog.js', 'w');
 
 var start = function(host, port) {
   socket = sioClient.connect(host + ':' + port,
@@ -13,8 +16,10 @@ var start = function(host, port) {
 };
 
 var sendMessage = function(message) {
-  console.log('%j : sendMessage : %j', (new Date()).toLocaleString(), message);
   socket.emit('message', message);
+  var tmpStr = util.format('%j : sendMessage : %j\n', (new Date()).toLocaleString(), message);
+  console.log(tmpStr);
+  fs.write(logFD, tmpStr);
 };
 
 var totalCnt = 70000
