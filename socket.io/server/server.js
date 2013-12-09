@@ -3,9 +3,11 @@ var path = require('path');
 var fs = require('fs');
 
 
-var logFD = fs.openSync('./sioSvrLog.js', 'w');
+var logFD = fs.openSync('./sioSvr.log', 'w');
 
 io.sockets.on('connection', function (socket) {
+  var address = socket.handshake.address;
+  console.log("New connection from " + address.address + ":" + address.port);
   socket.on('message', function (data) {
     // console.log('msg: ', data);
     fs.write(logFD, 'msg: ' + data + '\n');
