@@ -6,8 +6,10 @@ var fs = require('fs');
 var logFD = fs.openSync('./sioSvr.log', 'w');
 
 io.sockets.on('connection', function (socket) {
-  var address = socket.handshake.address;
-  console.log("New connection from " + address.address + ":" + address.port);
+  var cliAddress = socket.handshake.address;
+  console.log("typeof cliAddress.address = ", typeof cliAddress.address);
+  console.log("New connection from " + cliAddress.address + ":" + cliAddress.port);
+
   socket.on('message', function (data) {
     // console.log('msg: ', data);
     fs.write(logFD, 'msg: ' + data + '\n');
